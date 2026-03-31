@@ -1,5 +1,6 @@
 from books import Book
 
+
 def print_menu() -> None:
     print("\n📚 Book Collection App")
     print("1. Add a book")
@@ -35,4 +36,4 @@ def print_books(books: list[Book]) -> None:
     print("\nYour Books:")
     for index, book in enumerate(books, start=1):
         status = "✅ Read" if book.read else "📖 Unread"
-        print(f"{index}. {book.title} by {book.author} ({book.year}) - {status}") 
+        print(f"{index}. {book.title} by {book.author} ({book.year}) - {status}")

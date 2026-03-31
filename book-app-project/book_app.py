@@ -3,7 +3,6 @@ from collections.abc import Callable, Sequence
 
 from books import Book, BookCollection
 
-
 # Global collection instance
 collection = BookCollection()
 
