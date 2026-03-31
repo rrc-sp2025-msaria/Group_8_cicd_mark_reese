@@ -1,5 +1,5 @@
 import sys
-from typing import Callable, Sequence
+from collections.abc import Callable, Sequence
 
 from books import Book, BookCollection
 

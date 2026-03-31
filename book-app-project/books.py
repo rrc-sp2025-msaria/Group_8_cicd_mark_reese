@@ -1,6 +1,5 @@
 import json
 from dataclasses import dataclass, asdict
-from typing import List, Optional
 
 DATA_FILE = "data.json"
 
@@ -15,13 +14,13 @@ class Book:
 
 class BookCollection:
     def __init__(self):
-        self.books: List[Book] = []
+        self.books: list[Book] = []
         self.load_books()
 
-    def load_books(self):
+    def load_books(self) -> list[Book]:
         """Load books from the JSON file if it exists."""
         try:
-            with open(DATA_FILE, "r") as f:
+            with open(DATA_FILE) as f:
                 data = json.load(f)
                 self.books = [Book(**b) for b in data]
         except FileNotFoundError:
@@ -44,7 +43,7 @@ class BookCollection:
     def list_books(self) -> List[Book]:
         return self.books
 
-    def find_book_by_title(self, title: str) -> Optional[Book]:
+    def find_book_by_title(self, title: str) -> Book | None:
         for book in self.books:
             if book.title.lower() == title.lower():
                 return book
@@ -67,6 +66,6 @@ class BookCollection:
             return True
         return False
 
-    def find_by_author(self, author: str) -> List[Book]:
+    def find_by_author(self, author: str) -> list[Book]:
         """Find all books by a given author."""
         return [b for b in self.books if b.author.lower() == author.lower()]
