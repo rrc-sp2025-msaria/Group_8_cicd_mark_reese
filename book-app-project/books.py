@@ -13,11 +13,11 @@ class Book:
 
 
 class BookCollection:
-    def __init__(self):
+    def __init__(self) -> None:
         self.books: list[Book] = []
         self.load_books()
 
-    def load_books(self):
+    def load_books(self) -> None:
         """Load books from the JSON file if it exists."""
         try:
             with open(DATA_FILE) as f:          # "r" is the default, so remove it
@@ -29,7 +29,7 @@ class BookCollection:
             print("Warning: data.json is corrupted. Starting with empty collection.")
             self.books = []
 
-    def save_books(self):
+    def save_books(self) -> None:
         """Save the current book collection to JSON."""
         with open(DATA_FILE, "w") as f:
             json.dump([asdict(b) for b in self.books], f, indent=2)
