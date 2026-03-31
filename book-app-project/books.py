@@ -20,7 +20,7 @@ class BookCollection:
     def load_books(self) -> list[Book]:
         """Load books from the JSON file if it exists."""
         try:
-            with open(DATA_FILE) as f:
+            with open(DATA_FILE, "r") as f:
                 data = json.load(f)
                 self.books = [Book(**b) for b in data]
         except FileNotFoundError:
@@ -40,7 +40,7 @@ class BookCollection:
         self.save_books()
         return book
 
-    def list_books(self) -> List[Book]:
+    def list_books(self) -> list[Book]:
         return self.books
 
     def find_book_by_title(self, title: str) -> Book | None:
