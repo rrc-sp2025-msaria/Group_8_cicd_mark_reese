@@ -60,7 +60,7 @@ After each run, a `coverage-report-python-<version>` artifact is uploaded
 (retained for 14 days). Download it from the Actions run summary and open
 `index.html` for a line-by-line coverage breakdown.
 
-## Code Quality Configuration
+## Code Quality Configuration:
 
 ### Mypy (static type checking)
 
